@@ -4,62 +4,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+    
+    
   
-    
-    
-   <style>
-    body {
-        padding:0px;
-        margin:0px;
-        background-color:rgb(233, 203, 168);
-    }
-
-
-    header { 
-        display:flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 1em 0em;
-        justify-content:center;
-        
-
-    }
-   
-   header button {
-
-       background-color:blueviolet;
-       width:80px;
-       height:40px;
-       
-   }
-   #content {
-       display:flex;
-       justify-content:center;
-       align-items:center;
-       width:100%;
-
-       
-   }
-
- .board  {
-
-     height:600px;
-     width:600px;
-     background-color:white;
-     display:flex;
-     flex-direction:column;
-   }
-
-   .row {
-       background-color:rgb(3, 3, 3);
-       height:60px;
-       width:600px;
-   }
-
-    
-    </style>
-
-
 
 </head>
 
@@ -81,9 +30,12 @@
             board.className ="board";
           
          for(var y = 0; y < 8; y++) { 
-         addRowToBoard();
+            var row = addRowToBoard();
+            
         
-           
+         var square = document.createElement("div");
+           square.className ="square";
+           row.appendChild(square);
            
             
          }
@@ -91,7 +43,8 @@
             var row = document.createElement("div");
             row.className ="row";
             board.appendChild(row);
-
+            return row;
+           
             //Set background
             if (y%2) {
                 row.style.backgroundColor = "black";
@@ -100,8 +53,16 @@
             else {
                 row.style.backgroundColor ="white";
             }
+            
+           
+        
+
            }
+
+    
+        
          contentDiv.appendChild(board);
+         
             
             </script>
 </body>
